@@ -162,15 +162,17 @@ function info = parcel2mask(action, parcelPath, opt, useAudParcel)
         subID = ['sub-', opt.subjects{iSub}];
 
         % get ffx - 4D image folder
-        ffxDir = getFFXdir(opt.subjects{iSub}, funcFWHM, opt);
-
+        % ffxDir = getFFXdir(opt.subjects{iSub}, funcFWHM, opt);
+        imageDir = fullfile(opt.derivativesDir, subID,'ses-001','func');
+        
         for iMask = 1:length(maskToAlign)
 
           % choose the mask to realign and reslice
           maskName = maskToAlign{iMask};
           maskPath = fullfile(parcelPath, subID);
           mask = fullfile(maskPath, maskName);
-          image = fullfile(ffxDir, 'spmT_0001.nii'); % ['4D_beta_', num2str(funcFWHM),'.nii']
+         % image = fullfile(imageDir, 'spmT_0001.nii'); % ['4D_beta_', num2str(funcFWHM),'.nii']
+          image = fullfile(imageDir, 's2uasub-005_ses-001_task-RhythmFT_run-001_bold.nii'); 
 
           %% reslice the new-roi
           % so that it is in the same resolution as your 4D images

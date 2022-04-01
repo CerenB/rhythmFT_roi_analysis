@@ -10,7 +10,7 @@ clc;
   run ../lib/CPP_SPM/initCppSpm.m;
    
   % load your options
-  opt = getOptionBlockMvpa();
+  opt = getOptionFT();
 
   %% make Freesurfer based ROIs
   
@@ -19,7 +19,7 @@ clc;
                         '..', '..', '..','RhythmCateg_ROI', 'freesurfer');
   % which parcels to use?
   useAudParcel = 0;
-  
+  opt.maskFWHM = 2;
   % make rois
   % action 1 = makes individual/separate parcels and create binary masks
   % action 2 = combines the left hemisphere masks into 1 (e.g. left-basal
